@@ -1,0 +1,43 @@
+# Real-Time Object Detection with YOLOv3
+
+This project demonstrates real-time object detection using the YOLOv3 (You Only Look Once) algorithm and OpenCV. It utilizes pre-trained YOLOv3 weights and configuration files to detect objects from a video stream (e.g., webcam).
+
+## Features
+
+- **Real-Time Detection**: Processes video frames in real time to identify and label objects.
+- **Pre-Trained Model**: Uses YOLOv3, trained on the COCO dataset, which can detect 80 different object classes.
+- **Efficient Filtering**: Includes non-maximum suppression to eliminate overlapping bounding boxes for better accuracy.
+
+## Setup
+
+1. Download the required YOLOv3 files:
+    ```bash
+    curl -O https://pjreddie.com/media/files/yolov3.weights
+    curl -O https://raw.githubusercontent.com/pjreddie/darknet/master/cfg/yolov3.cfg
+    curl -O https://raw.githubusercontent.com/pjreddie/darknet/master/data/coco.names
+    ```
+
+2. Ensure you have the necessary dependencies:
+    - Python 3.6+
+    - OpenCV
+    - NumPy
+
+3. Install dependencies:
+    ```bash
+    pip install opencv-python numpy
+    ```
+
+## How It Works
+
+1. **Model Loading**: The YOLOv3 weights and configuration files are loaded into OpenCV's DNN module.
+2. **Object Detection**:
+   - A video frame is captured using a webcam.
+   - The frame is processed into a blob and passed through the YOLOv3 network.
+   - Detected objects are filtered based on confidence scores.
+3. **Bounding Box Drawing**: Non-maximum suppression is applied, and bounding boxes are drawn around detected objects with labels and confidence scores.
+
+## Running the Code
+
+Run the Python script to start object detection:
+```bash
+python yolo_object_detection.py
